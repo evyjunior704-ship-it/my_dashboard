@@ -11,47 +11,47 @@ export const Projects = () => {
       id: 'storems',
       index: '01',
       title: 'StoreMS',
-      label: 'StoreMS — Secure Retail Management Architecture',
-      tagline: 'Multi-store inventory management with transactional concurrency control, BCrypt authentication, and OWASP Top 10 mitigation.',
-      category: 'Backend & AppSec Architecture',
+      label: 'StoreMS — Store Management System',
+      tagline: 'Multi-store inventory and retail management built with Java, Spring Boot, and PostgreSQL.',
+      category: 'Backend & Web Security',
       timeline: '2025',
       status: 'Completed',
       statusType: 'completed',
       themeClass: 'theme-cyan',
-      repoUrl: 'https://github.com/evyjunior704-ship-it',
+      repoUrl: 'https://github.com/evyjunior704-ship-it/store-Management-System',
       isPublicRepo: true,
       tags: ['Java 21', 'Spring Boot', 'PostgreSQL', 'JPA / Hibernate', 'Thymeleaf', 'BCrypt', 'OpenPDF'],
-      problem: 'Retail operations face dual critical failure modes: stock race conditions during peak checkout volumes where multiple customers purchase the last unit simultaneously, and web security vulnerabilities—specifically Broken Access Control (OWASP A01) where users manipulate query parameters to inspect another store\'s confidential ledger.',
-      role: 'Sole designer and backend developer: modeled the PostgreSQL relational database schema with composite keys, wrote Spring Data JPA entities and custom repository queries, built the transactional checkout pipeline, and audited the security posture against OWASP Top 10 standards.',
+      problem: 'Small retail stores often run into inventory errors when multiple customers try to buy the last item in stock at once. In addition, weak web setups can allow users to view other stores\' confidential sales simply by modifying IDs in the URL.',
+      role: 'Sole developer: designed the relational PostgreSQL schema, wrote Spring Boot controllers and business services, implemented secure authentication, and tested against common web vulnerabilities.',
       decisions: [
         {
-          title: 'Store-Scoped Principal Isolation',
-          detail: 'Store context is extracted strictly from the authenticated security session—never from user-supplied URL or form parameters—completely eliminating Insecure Direct Object References (IDOR).'
+          title: 'Session-Based Store Access',
+          detail: 'Store context is derived strictly from the authenticated login session—never from URL parameters—preventing unauthorized access (IDOR).'
         },
         {
-          title: 'BCrypt Work Factor 10 & Generic Auth Errors',
-          detail: 'Eliminates user enumeration and timing attacks during failed authentication attempts.'
+          title: 'BCrypt Password Hashing',
+          detail: 'Used BCrypt with work factor 10 and consistent login error messages so attackers cannot guess valid usernames.'
         },
         {
-          title: 'Atomic Database Row Locking',
-          detail: 'Service operations are wrapped in Spring @Transactional boundaries with database row locks to guarantee zero stock overselling under concurrent checkouts.'
+          title: 'Transactional Checkout Flow',
+          detail: 'Wrapped checkout operations in Spring\'s @Transactional with database row locks so inventory deductions always stay consistent.'
         }
       ],
-      learned: 'Gained a deep appreciation for relational database isolation levels and Jakarta Bean validation. Next steps include containerizing the microservices with Docker and adding automated concurrency integration tests.',
+      learned: 'Learned how database transactions and entity relationships work under concurrent requests. Next steps include containerizing with Docker and adding integration tests.',
       schematic: {
-        title: 'TRANSACTIONAL DATA PIPELINE & SECURITY PERIMETER',
-        stack: 'Java 21 • Spring Boot • PostgreSQL ACID',
+        title: 'CHECKOUT FLOW & SECURITY BOUNDARY',
+        stack: 'Java 21 • Spring Boot • PostgreSQL',
         nodes: [
-          { type: 'Client Entry', name: 'Web Checkout Request', detail: 'Form Submission / Cart Payload' },
-          { type: 'Security Gate', name: 'CSRF & BCrypt Auth', detail: 'Token Validation & Work Factor 10', connector: 'Principal Resolved' },
-          { type: 'Security Perimeter', name: 'Store-Scoped Tenant Session', detail: 'Session-derived Store ID (IDOR Immune)', highlight: true, connector: '@Transactional Boundary' },
-          { type: 'Service Layer', name: 'Atomic Stock Check', detail: 'Row-level Pessimistic Lock', connector: 'JPA / Hibernate' },
-          { type: 'Persistence', name: 'PostgreSQL Ledger', detail: 'ACID Transactional Commit' }
+          { type: 'Client Request', name: 'Checkout Request', detail: 'Cart & Payment Form' },
+          { type: 'Auth & CSRF', name: 'BCrypt & Session Check', detail: 'Token Verified & Principal Resolved', connector: 'Principal Resolved' },
+          { type: 'Store Boundary', name: 'Session-Derived Store ID', detail: 'Scoped strictly to logged-in user', highlight: true, connector: '@Transactional Boundary' },
+          { type: 'Service Layer', name: 'Atomic Stock Check', detail: 'Database Row Lock', connector: 'Spring Data JPA' },
+          { type: 'Database', name: 'PostgreSQL Commit', detail: 'Safe Transaction Completed' }
         ],
         callouts: [
-          { label: 'Security Boundary', value: 'Zero IDOR Surface' },
-          { label: 'Concurrency', value: 'Atomic Stock Lock' },
-          { label: 'Password Hash', value: 'BCrypt (Cost 10)' }
+          { label: 'Access Control', value: 'Session-Scoped ID' },
+          { label: 'Concurrency', value: 'Database Row Lock' },
+          { label: 'Password Security', value: 'BCrypt (Cost 10)' }
         ]
       }
     },
@@ -59,9 +59,9 @@ export const Projects = () => {
       id: 'concealed',
       index: '02',
       title: 'Concealed',
-      label: 'Concealed — Neural Network Image Obfuscation',
-      tagline: 'Privacy defense prototype that obscures biometric features from facial recognition models while preserving perceptual quality for human eyes.',
-      category: 'Computer Vision & AI Privacy',
+      label: 'Concealed — Image Privacy Tool',
+      tagline: 'A privacy prototype that subtly alters photos to confuse facial recognition models while looking natural to human eyes.',
+      category: 'Computer Vision & Privacy',
       timeline: '2024 - 2025',
       status: 'Hackathon Prototype',
       statusType: 'prototype',
@@ -69,85 +69,85 @@ export const Projects = () => {
       repoUrl: 'https://github.com/evyjunior704-ship-it',
       isPublicRepo: true,
       tags: ['Python', 'Computer Vision', 'Sobel Edge Filters', 'Node.js', 'Neural Networks', 'PyTorch'],
-      problem: 'Automated surveillance engines and facial recognition algorithms scrape public social media images without consent. Traditional privacy techniques (black bars or blurring) ruin photos for personal use. Concealed explores targeted mathematical edge disruptions that confuse machine learning classifiers while remaining unnoticeable to human viewers.',
-      role: 'Co-created the core concept during a hackathon, led the front-end user experience, and researched mathematical image decomposition algorithms—analyzing how Sobel horizontal and vertical gradient masks alter feature map activations in convolutional networks.',
+      problem: 'Facial recognition models scrape photos from public web pages without user consent. Traditional privacy fixes like blurring protect identity, but make photos unusable to share. Concealed explores small edge-filter adjustments that confuse models while keeping photos looking natural.',
+      role: 'Co-developed the project concept during a hackathon, built the front-end user interface, and researched how edge-detection filters affect facial recognition feature detection.',
       decisions: [
         {
-          title: 'Sobel X/Y Edge Frequency Analysis',
-          detail: 'Investigated how edge detection disrupts high-frequency facial landmark anchors without degrading overall image contrast.'
+          title: 'Sobel Edge Filters',
+          detail: 'Researched how applying Sobel gradient edge filters disrupts the facial landmark points that automated face detectors search for.'
         },
         {
-          title: 'Client-Side Lightweight Processing',
-          detail: 'Kept file sizes compact for rapid web transmission without sending uncompressed biometric portraits to third-party cloud servers.'
+          title: 'Fast Client Processing',
+          detail: 'Kept the processing lightweight and client-friendly so users don\'t need to send uncompressed photos to third-party servers.'
         },
         {
-          title: 'Feature Vector Perturbation',
-          detail: 'Targeted mathematical convolution masks that drastically drop facial embedding cosine similarity in facial recognition networks.'
+          title: 'Preserving Visual Quality',
+          detail: 'Balanced landmark disruption so human viewers still see a clear, high-quality photo.'
         }
       ],
-      learned: 'Learned how convolutional neural networks extract pixel gradient hierarchies versus human optical perception, and the importance of reproducible testing in computer vision research.',
+      learned: 'Learned how computer vision networks extract pixel gradient features versus human vision, and enjoyed collaborating quickly with teammates under hackathon deadlines.',
       schematic: {
-        title: 'COMPUTER VISION OBFUSCATION PIPELINE',
-        stack: 'Python • PyTorch • Sobel Convolution Masks',
+        title: 'IMAGE OBFUSCATION FLOW',
+        stack: 'Python • PyTorch • Sobel Convolution',
         nodes: [
-          { type: 'Input Medium', name: 'Raw Portrait RGB', detail: 'High-Resolution Face Image' },
-          { type: 'Decomposition', name: '2D Spatial Convolutions', detail: 'Gradient Intensity Matrix', connector: 'Frequency Splitting' },
-          { type: 'Obfuscation Core', name: 'Sobel X/Y Edge Mask', detail: 'Disrupts High-Frequency Biometric Anchors', highlight: true, connector: 'Neural Evasion' },
-          { type: 'Classifier Attack', name: 'Facial Model Scrambler', detail: 'Embedding Cosine Similarity Drops < 0.4', connector: 'Alpha Composition' },
-          { type: 'Visual Output', name: 'Pristine Human Image', detail: 'Visually Natural & Shareable' }
+          { type: 'Input Image', name: 'Portrait Photo', detail: 'Original image' },
+          { type: 'Decomposition', name: 'Gradient Analysis', detail: 'Intensity calculations', connector: 'Frequency Mask' },
+          { type: 'Obfuscation Core', name: 'Sobel Edge Filter', detail: 'Disrupts facial landmark points', highlight: true, connector: 'Feature Perturbation' },
+          { type: 'Model Test', name: 'Face Detector Evaluation', detail: 'Recognition confidence drops', connector: 'Blended Output' },
+          { type: 'Final Image', name: 'Natural Output Photo', detail: 'Looks clear to people' }
         ],
         callouts: [
-          { label: 'Privacy Defense', value: 'Biometric Landmark Evasion' },
-          { label: 'Processing', value: 'Client-Side Lightweight' },
-          { label: 'Visual Quality', value: 'Perceptually Pristine' }
+          { label: 'Privacy Goal', value: 'Landmark Evasion' },
+          { label: 'Execution', value: 'Lightweight & Fast' },
+          { label: 'Visual Quality', value: 'Natural to Humans' }
         ]
       }
     },
     {
       id: 'phishing',
       index: '03',
-      title: 'NLP Phishing Detector',
-      label: 'NLP AI Phishing Email Detection Pipeline',
-      tagline: 'AI-driven email threat detection combining natural language processing on message bodies with anomaly extraction on SMTP routing headers.',
-      category: 'Applied AI & Threat Intelligence',
+      title: 'Phishing Detector',
+      label: 'Phishing Email Detector',
+      tagline: 'Machine learning tool that analyzes email body text and inspects routing headers to catch phishing attempts.',
+      category: 'Applied ML & Security',
       timeline: '2025 - Present',
       status: 'In Progress',
       statusType: 'in-progress',
       themeClass: 'theme-coral',
-      repoUrl: null,
-      isPublicRepo: false,
+      repoUrl: 'https://github.com/evyjunior704-ship-it/Phishing_detector',
+      isPublicRepo: true,
       tags: ['Python', 'NLP', 'Scikit-Learn', 'Machine Learning', 'JavaFX', 'MIME Parsing'],
-      problem: 'Spear-phishing attacks craft targeted social engineering contexts that effortlessly bypass static, rule-based signature filters. Modern threat defense requires semantic linguistic analysis of email intent combined with technical validation of transmission headers.',
-      role: 'Developing an NLP classification pipeline in Python utilizing Scikit-Learn tokenizers to analyze message semantics, coupled with an anomaly-detection parser for SMTP routing hops. Engineering a responsive JavaFX desktop alert interface for triage analysis.',
+      problem: 'Modern phishing emails often slip past standard spam filters by using convincing wording and disguised sender headers. Catching them requires analyzing the email message intent along with the technical sender headers.',
+      role: 'Sole developer: building the data preprocessing pipeline in Python, testing classification models against open phishing datasets, and building a JavaFX desktop interface to inspect flagged emails.',
       decisions: [
         {
-          title: 'Dual-Signal Feature Extraction',
-          detail: 'Parsing body semantic tokens alongside MIME header anomalies to minimize false negatives on novel phishing variants.'
+          title: 'Text & Header Analysis',
+          detail: 'Analyzing both the body message (using NLP) and verifying routing headers (like SPF/DKIM flags and reply-to mismatches) gives a much stronger signal.'
         },
         {
-          title: 'Local Offline Inference',
-          detail: 'Ensuring sensitive corporate email data is triaged locally without external third-party API exposure.'
+          title: 'Local Processing',
+          detail: 'Runs email triage locally so sensitive email data does not need to be sent to external cloud APIs.'
         },
         {
-          title: 'Analyst Triage Queue UI',
-          detail: 'Building a standalone desktop alert interface allowing security analysts to inspect token weights and flagged email phrases in real time.'
+          title: 'JavaFX Desktop Dashboard',
+          detail: 'Built a desktop interface so users can view flagged emails, inspect which phrases triggered the warning, and see the risk score.'
         }
       ],
-      learned: 'Deepening understanding of feature engineering for imbalanced threat datasets, evaluating token weights, and benchmarking model sensitivity against adversarial evasion.',
+      learned: 'Gained practical experience with feature engineering on imbalanced security datasets. Currently working on model accuracy across newer phishing templates.',
       schematic: {
-        title: 'DUAL-VECTOR THREAT DETECTION ENGINE',
-        stack: 'Python • Scikit-Learn • NLP Tokenizers • JavaFX',
+        title: 'EMAIL THREAT DETECTION FLOW',
+        stack: 'Python • Scikit-Learn • NLP • JavaFX',
         nodes: [
-          { type: 'Inbound Stream', name: 'Raw SMTP Email Stream', detail: 'MIME RFC 5322 Data Payload' },
-          { type: 'Dual Parser', name: 'Body & Header Splitter', detail: 'Separates Text Body & Routing Hops', connector: 'Dual Signals' },
-          { type: 'Semantic Engine', name: 'NLP Tokenizer & Scikit Model', detail: 'Calculates Social Engineering Risk Weights', highlight: true, connector: 'Feature Fusion' },
-          { type: 'Header Inspection', name: 'SPF / DKIM / Hop Anomaly', detail: 'Validates Relay Chain Authenticity', connector: 'Unified Score' },
-          { type: 'Analyst UI', name: 'JavaFX Triage Alert', detail: 'Interactive Token & Risk Score Dashboard' }
+          { type: 'Incoming Email', name: 'Email Message Stream', detail: 'MIME RFC 5322 payload' },
+          { type: 'Parser', name: 'Body & Header Splitter', detail: 'Extracts message text and headers', connector: 'Dual Signals' },
+          { type: 'NLP Classifier', name: 'Text Semantics Model', detail: 'Scores urgency and suspicious wording', highlight: true, connector: 'Combined Score' },
+          { type: 'Header Check', name: 'SPF / DKIM / Sender Validation', detail: 'Checks relay chain and reply-to', connector: 'Risk Aggregator' },
+          { type: 'Desktop App', name: 'JavaFX Alert UI', detail: 'Shows risk score and highlighted phrases' }
         ],
         callouts: [
-          { label: 'Detection Model', value: 'Semantic NLP + Header Hops' },
-          { label: 'Privacy Mode', value: 'Zero Cloud Data Leak' },
-          { label: 'Interface', value: 'Desktop JavaFX Queue' }
+          { label: 'Detection Method', value: 'NLP Text + Header Flags' },
+          { label: 'Privacy', value: 'Runs Locally on Device' },
+          { label: 'Interface', value: 'JavaFX Desktop App' }
         ]
       }
     }
@@ -173,11 +173,11 @@ export const Projects = () => {
         <div className="section-header-block">
           <span className="section-kicker">
             <Sparkles size={14} className="kicker-icon" />
-            <span>02 / Selected Case Studies</span>
+            <span>02 / Projects</span>
           </span>
-          <h2 className="section-heading">Engineered Systems & Technical Architecture</h2>
+          <h2 className="section-heading">Featured Projects</h2>
           <p className="section-subtext">
-            In-depth architectural breakdowns of systems I have built and researched—focusing on defensive boundaries, concurrency controls, and real-world trade-offs.
+            Projects I've built and worked on—focusing on backend services, application security, and applied machine learning.
           </p>
         </div>
 
@@ -224,19 +224,19 @@ export const Projects = () => {
           <div className="project-narrative-sections">
             {/* The Engineering Problem */}
             <div className="editorial-text-block">
-              <h3 className="editorial-block-label">The Engineering Problem</h3>
+              <h3 className="editorial-block-label">The Problem</h3>
               <p className="editorial-block-prose">{current.problem}</p>
             </div>
 
             {/* My Role & Architecture Implementation */}
             <div className="editorial-text-block">
-              <h3 className="editorial-block-label">Implementation & My Role</h3>
+              <h3 className="editorial-block-label">My Role & Implementation</h3>
               <p className="editorial-block-prose">{current.role}</p>
             </div>
 
             {/* Key Technical Decisions (Fine Rule Divider Layout) */}
             <div className="editorial-text-block">
-              <h3 className="editorial-block-label">Key Architectural Decisions</h3>
+              <h3 className="editorial-block-label">Key Decisions</h3>
               <div className="editorial-decisions-stack">
                 {current.decisions.map((dec, idx) => (
                   <div key={idx} className="editorial-decision-item">
@@ -274,12 +274,12 @@ export const Projects = () => {
                 className="btn btn-primary"
               >
                 <GithubIcon size={16} />
-                <span>Explore GitHub Repository</span>
+                <span>View on GitHub</span>
               </a>
             ) : (
               <span className="active-development-tag">
                 <span className="live-status-dot" />
-                <span>Active Research Prototype</span>
+                <span>Active Project</span>
               </span>
             )}
 

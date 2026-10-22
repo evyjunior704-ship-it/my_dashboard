@@ -1,8 +1,6 @@
 /**
- * ==============================================================================
- * EVY JUNIOR KEMBOU DONGMO - PORTFOLIO DATA ARCHITECTURE
- * Grounded in verified evidence from academic & technical experience.
- * ==============================================================================
+ * EVY JUNIOR KEMBOU DONGMO - PORTFOLIO DATA
+ * Computer Science Student (Cybersecurity Specialization) at UNB
  */
 
 export const profileData = {
@@ -10,42 +8,43 @@ export const profileData = {
     fullName: "Evy Junior Kembou Dongmo",
     shortName: "Evy Kembou Dongmo",
     monogram: "EKD",
-    role: "Computer Science Student & Developing Software Engineer",
+    role: "Computer Science Student (Cybersecurity)",
     institution: "University of New Brunswick",
     degree: "Bachelor of Computer Science (BSc), Cybersecurity Specialization",
     expectedGraduation: "Expected May 2028",
     location: "Fredericton, NB, Canada • Open to Relocation & Remote",
-    bilingual: "English (Fluent) • French (Fluent) — Fully Bilingual",
+    bilingual: "English & French — Fully Bilingual",
     email: "evyjunior704@gmail.com",
     githubUrl: "https://github.com/evyjunior704-ship-it",
     githubUser: "evyjunior704-ship-it",
-    linkedinUrl: "https://www.linkedin.com/in/evy-junior-kembou-dongmo",
+    linkedinUrl: "https://www.linkedin.com/in/evy-junior-kembou-dongmo-451528351/",
     linkedinUser: "Evy Junior Kembou Dongmo",
-    statusBadge: "BSc Computer Science (Cybersecurity) • UNB",
+    resumeUrl: `${import.meta.env.BASE_URL}Resume_Software_Development.docx`,
+    statusBadge: "2nd-Year BSc Computer Science • UNB",
     
-    // Concise professional intro
-    heroIntro: "Computer Science student at the University of New Brunswick specializing in cybersecurity. Building backend services with Java and Spring Boot, researching system security, and developing applied machine learning tools."
+    // Simple, natural student intro
+    heroIntro: "I'm a second-year Computer Science student at the University of New Brunswick focusing on cybersecurity. I enjoy building backend projects with Java and Spring Boot, learning about network and system security, and working on practical machine learning tools."
   },
 
   about: {
-    lead: "Building backend systems, studying security at the protocol level, and writing clear, dependable code.",
+    lead: "Building solid backend projects, learning how software security works under the hood, and writing clean, reliable code.",
     paragraphs: [
-      "I am an undergraduate Computer Science student at the University of New Brunswick with a concentration in cybersecurity. My academic focus centers on algorithms, data structures, and operating systems, which I apply directly to software development.",
-      "My primary development work is in Java (Spring Boot) and Python. I build services with an emphasis on data integrity, concurrency controls, and defense against OWASP Top 10 vulnerabilities—handling security at the architecture level rather than as a patch.",
-      "Outside the terminal, I am fully bilingual in English and French, and I play competitive soccer and basketball."
+      "I'm an undergraduate Computer Science student at the University of New Brunswick in Fredericton with a specialization in cybersecurity. In my courses, I study data structures, algorithms, and computer systems, and I love applying what I learn directly to hands-on software projects.",
+      "Most of my coding is in Java (Spring Boot) and Python. When building applications, I focus on solid data flow, handling concurrent transactions, and keeping security in mind from day one—like preventing race conditions during checkout and stopping common web vulnerabilities such as broken access controls and injection attacks.",
+      "Outside of classes and coding, I'm completely bilingual in English and French, and you can usually find me playing competitive soccer or basketball."
     ],
     principles: [
       {
-        title: "Secure by Design",
-        description: "Enforcing session validation, authentication, and least-privilege access at the controller and database layers before deployment."
+        title: "Security from Day One",
+        description: "Checking permissions, sanitizing user inputs, and keeping sensitive operations properly authenticated rather than treating security as an afterthought."
       },
       {
-        title: "Root-Cause Investigation",
-        description: "Diagnosing race conditions, memory bounds, and protocol failures down to the system level rather than treating symptoms."
+        title: "Digging Into the Cause",
+        description: "Taking time to understand why bugs, concurrency issues, or errors happen at the system level instead of just applying surface-level fixes."
       },
       {
-        title: "Direct Technical Communication",
-        description: "Articulating architectural decisions and trade-offs concisely in both English and French for technical and non-technical peers."
+        title: "Clear Communication",
+        description: "Explaining technical choices, design trade-offs, and code clearly and simply in both English and French."
       }
     ]
   },
@@ -53,89 +52,89 @@ export const profileData = {
   projects: [
     {
       id: "storems",
-      title: "StoreMS — Secure Retail Management Architecture",
-      subtitle: "Multi-store inventory management with transactional integrity and OWASP Top 10 mitigation.",
+      title: "StoreMS — Store Management System",
+      subtitle: "Multi-store inventory and retail management built with Java, Spring Boot, and PostgreSQL.",
       status: "Completed",
       year: "2025",
-      category: "Backend & Secure Software",
-      githubUrl: "https://github.com/evyjunior704-ship-it",
+      category: "Backend & Web Security",
+      githubUrl: "https://github.com/evyjunior704-ship-it/store-Management-System",
       isPublicRepo: true,
-      tags: ["Java 21", "Spring Boot", "PostgreSQL", "Spring Data JPA", "Thymeleaf", "BCrypt"],
-      summary: "Designed and directed development of a complete retail management system engineered with strict secure-by-design principles, transactional concurrency controls, and store-scoped multi-tenancy.",
-      problem: "Small-to-medium retail operations face critical stock race conditions during concurrent checkouts and frequent web vulnerability exposure (account enumeration, privilege escalation, and broken access controls).",
-      myRole: "Sole software developer and designer: architected the relational database schema, built Spring Boot service controllers, implemented authentication, and conducted security validation.",
-      keyChallenge: "Preventing stock race conditions during simultaneous customer purchases while isolating store data strictly by the authenticated principal—never trusting user-supplied store ID parameters.",
+      tags: ["Java 21", "Spring Boot", "PostgreSQL", "Spring Data JPA", "Thymeleaf", "BCrypt", "OpenPDF"],
+      summary: "A store management system built to handle inventory, multiple store locations, and sales checkout safely without stock conflicts or unauthorized access.",
+      problem: "Small retail stores often run into inventory errors when multiple customers try to buy the last item in stock at once. In addition, weak web setups can allow users to view other stores' confidential sales simply by modifying IDs in the URL.",
+      myRole: "Sole developer: designed the relational PostgreSQL schema, wrote Spring Boot controllers and business services, implemented secure authentication, and tested against common web vulnerabilities.",
+      keyChallenge: "Preventing stock count race conditions during simultaneous checkouts and ensuring store managers can only access data belonging to their own store.",
       technicalDecisions: [
         {
-          decision: "Store-Scoped Principal Isolation",
-          rationale: "All queries derive store scope solely from the authenticated session token, eliminating Insecure Direct Object References (IDOR / OWASP A01 Broken Access Control)."
+          decision: "Session-Based Store Access",
+          rationale: "Store IDs are derived strictly from the authenticated login session—never from URL parameters that users could manipulate—preventing broken access control (IDOR)."
         },
         {
-          decision: "BCrypt Hashing with Work Factor 10",
-          rationale: "Resistant to offline rainbow table attacks, paired with generic login error responses to completely prevent user enumeration."
+          decision: "BCrypt Password Hashing",
+          rationale: "Used BCrypt hashing with work factor 10 and consistent login error messages so attackers cannot guess or enumerate valid usernames."
         },
         {
-          decision: "ACID Transactional Checkout Service",
-          rationale: "Spring @Transactional boundaries with database row locking ensure inventory deductions and order creation succeed atomically or roll back completely."
+          decision: "Transactional Checkout Flow",
+          rationale: "Wrapped checkout in Spring's @Transactional with database row locks so inventory deductions and order creation always complete together safely or roll back."
         },
         {
-          decision: "Server-Side Reporting Pipeline",
-          rationale: "Engineered an OpenPDF generation routine for managers to export audit logs and daily transaction records securely server-side."
+          decision: "PDF Report Generation",
+          rationale: "Built a server-side PDF export with OpenPDF so managers can download daily transaction summaries and audit logs directly."
         }
       ],
-      learnedAndNext: "Learned the subtleties of Jakarta Bean Validation on composite JPA entities and synchronizer token CSRF defense. Next step is containerizing the stack with Docker and adding automated integration tests."
+      learnedAndNext: "Learned a lot about how database transactions, entity relationships, and form validation work in Spring Boot. Next step is containerizing with Docker and adding integration tests."
     },
     {
       id: "concealed",
-      title: "Concealed — Neural Network Image Obfuscation",
-      subtitle: "Privacy defense tool obscuring biometric facial recognition features against mass surveillance.",
+      title: "Concealed — Image Privacy Tool",
+      subtitle: "A privacy tool that subtly alters images to confuse facial recognition models while looking natural to humans.",
       status: "Hackathon Project",
       year: "2024 - 2025",
-      category: "Computer Vision & AI Privacy",
+      category: "Computer Vision & Privacy",
       githubUrl: "https://github.com/evyjunior704-ship-it",
       isPublicRepo: true,
-      tags: ["Python", "PyTorch", "Node.js", "Sobel Filter", "Computer Vision"],
-      summary: "Co-developed an image obfuscation tool that applies lightweight neural network transformations to hide micro-biometric features targeted by automated surveillance while keeping images pristine to human eyes.",
-      problem: "Automated facial recognition systems scrape social media and public web spaces without user consent. Traditional blurring or pixelation makes images unusable for personal sharing.",
-      myRole: "Co-created the project concept, led front-end interface development, and researched mathematical image decomposition algorithms to improve model effectiveness.",
-      keyChallenge: "Balancing the disruption of convolutional neural network feature maps with human perceptual quality while keeping output image sizes small for rapid web transmission.",
+      tags: ["Python", "PyTorch", "Sobel Filter", "Node.js", "Computer Vision"],
+      summary: "Co-developed during a hackathon to explore how targeted mathematical image filters can protect personal photos from automated web scrapers without making them look blurry or distorted.",
+      problem: "Facial recognition systems scrape public photos across the web without consent. Traditional privacy fixes like blurring or black bars protect identity, but make photos ugly and unshareable.",
+      myRole: "Co-created the project concept with teammates, built the front-end user interface, and researched how edge-detection filters affect facial recognition feature detection.",
+      keyChallenge: "Finding the sweet spot where facial recognition classifiers fail to recognize key facial landmarks, while the image still looks clear and natural to friends and family.",
       technicalDecisions: [
         {
-          decision: "Sobel Gradient Edge Decomposition",
-          rationale: "Studied how Sobel X and Sobel Y gradient edge detection filters disrupt high-frequency biometric landmarks analyzed by facial recognition classifiers."
+          decision: "Sobel Edge Filters",
+          rationale: "Researched how applying Sobel gradient edge filters disrupts the high-frequency facial landmark points that facial recognition models rely on."
         },
         {
-          decision: "Lightweight Client Architecture",
-          rationale: "Kept the processing lightweight so users could obfuscate photos without transmitting uncompressed raw biometric data to an untrusted cloud server."
+          decision: "Lightweight Processing",
+          rationale: "Kept processing efficient so images could be processed quickly without requiring heavy cloud servers."
         }
       ],
-      learnedAndNext: "Gained hands-on insight into how computer vision models interpret pixel gradients versus human visual perception. Future improvements include testing against adversarial evasion benchmarks."
+      learnedAndNext: "Gained practical insight into how computer vision models interpret pixel gradients versus human eyesight, and had fun working with a fast-paced hackathon team."
     },
     {
       id: "phishing-nlp",
-      title: "NLP AI Phishing Email Detection Pipeline",
-      subtitle: "Machine learning classifier for proactive email threat triage and desktop hazard scoring.",
+      title: "Phishing Email Detector",
+      subtitle: "Machine learning classifier combining email body text analysis with header inspection to catch phishing attacks.",
       status: "In Progress",
       year: "2025 - Present",
-      category: "Threat Intelligence & NLP",
-      githubUrl: "https://github.com/evyjunior704-ship-it",
-      isPublicRepo: false,
-      tags: ["Python", "Natural Language Processing", "Machine Learning", "JavaFX"],
-      summary: "Developing an AI-driven email analysis application that tokenizes incoming messages, extracts suspicious header metadata, and scores phishing probability before credential harvesting can occur.",
-      problem: "Spear-phishing attacks deceive conventional rule-based spam filters through urgent emotional cues, homoglyph domains, and spoofed routing headers.",
-      myRole: "Sole developer: designing data preprocessing pipelines, evaluating text classification models against open phishing corpora, and building a JavaFX desktop dashboard for risk scoring.",
-      keyChallenge: "Minimizing false negatives—missing a targeted spear-phishing attack carries vastly higher risk than flagging an ambiguous marketing message.",
+      category: "Machine Learning & Security",
+      githubUrl: "https://github.com/evyjunior704-ship-it/Phishing_detector",
+      isPublicRepo: true,
+      tags: ["Python", "Natural Language Processing", "Scikit-Learn", "JavaFX", "MIME Parsing"],
+      summary: "Building an email analysis tool that scans incoming messages, checks email headers for spoofing anomalies, and calculates a phishing risk score before anyone clicks a bad link.",
+      problem: "Spear-phishing emails often trick basic spam filters by using emotional language, disguised sender domains, and spoofed routing headers.",
+      myRole: "Sole developer: designing the preprocessing pipeline in Python, evaluating classification models on open phishing datasets, and building a JavaFX desktop interface to inspect flagged emails.",
+      keyChallenge: "Minimizing false positives while making sure genuine phishing attempts don't slip through unnoticed.",
       technicalDecisions: [
         {
-          decision: "Multi-Feature Header & Body Extraction",
-          rationale: "Combining body tokenization (NLP) with header anomaly detection (SPF/DKIM inspection markers and reply-to mismatches)."
+          decision: "Checking Both Body and Headers",
+          rationale: "Combining text tokenization (NLP) with header anomaly checks (like SPF/DKIM flags and sender mismatches) provides a much stronger signal."
         },
         {
-          decision: "JavaFX Native Desktop Interface",
-          rationale: "Building a standalone desktop alert interface allowing security analysts to inspect token weights and flagged email phrases in real time."
+          decision: "JavaFX Desktop App",
+          rationale: "Created a desktop UI so users can view flagged emails, inspect which phrases triggered the warning, and see the risk breakdown in real time."
         }
       ],
-      learnedAndNext: "Deepening understanding of feature engineering for imbalanced threat datasets. Currently benchmarking classification models to balance inference latency with detection sensitivity."
+      learnedAndNext: "Learning a lot about feature engineering and working with imbalanced security datasets. Currently refining the model's accuracy on newer phishing formats."
     }
   ],
 
@@ -145,39 +144,39 @@ export const profileData = {
         id: "languages",
         name: "Programming Languages",
         items: [
-          { name: "Java", context: "Applied in StoreMS (Java 21, Spring Boot), JavaFX UI, and coursework algorithms" },
-          { name: "Python", context: "Used for NLP phishing models, computer vision edge detection, and security scripting" },
-          { name: "Bash / Shell", context: "Linux server administration, automation scripts, and lab diagnostics" },
-          { name: "JavaScript", context: "Front-end interface development, DOM interaction, and web tooling" }
+          { name: "Java", context: "Used in StoreMS (Java 21, Spring Boot), JavaFX desktop tools, and university coursework" },
+          { name: "Python", context: "Used for phishing detection models, computer vision edge detection, and security scripts" },
+          { name: "Bash / Shell", context: "Linux command line, automation scripts, and server navigation" },
+          { name: "JavaScript", context: "Front-end UI development, DOM interaction, and web applications" }
         ]
       },
       {
         id: "backend",
-        name: "Backend & Systems",
+        name: "Backend & Databases",
         items: [
-          { name: "Spring Boot", context: "REST controllers, dependency injection, service layer architecture" },
-          { name: "Spring Data JPA", context: "Entity modeling, composite keys, foreign-key relationships" },
-          { name: "PostgreSQL & MySQL", context: "Relational database schema design, ACID transactions, data isolation" },
-          { name: "Linux (Ubuntu)", context: "Command-line navigation, system hardening, service management" }
+          { name: "Spring Boot", context: "REST APIs, dependency injection, and clean service-layer design" },
+          { name: "Spring Data JPA", context: "Database entity modeling, relationships, and queries with Hibernate" },
+          { name: "PostgreSQL & MySQL", context: "Database schema design, queries, and transactional data integrity" },
+          { name: "Linux (Ubuntu)", context: "Command-line navigation, system administration, and development environment setup" }
         ]
       },
       {
         id: "security",
-        name: "Security & AppSec Practices",
+        name: "Security & AppSec",
         items: [
-          { name: "OWASP Top 10 Defense", context: "Addressing Broken Access Control (A01), Cryptographic Failures (A02), Auth Failures (A07)" },
-          { name: "Authentication & RBAC", context: "BCrypt password hashing, session tokens, store-scoped permission models" },
-          { name: "CSRF & Input Validation", context: "Synchronizer token defense, Jakarta Bean Validation, parameterized queries" },
-          { name: "Hands-on CTF Labs", context: "Network exploitation, system hardening, and diagnostics via TryHackMe & Hack The Box" }
+          { name: "OWASP Top 10 Awareness", context: "Preventing broken access control, SQL injection, and security misconfigurations" },
+          { name: "Authentication & Permissions", context: "BCrypt password hashing, session management, and role-based access" },
+          { name: "Input Validation & CSRF", context: "Sanitizing user inputs, form validation tokens, and parameterized queries" },
+          { name: "Hands-on CTF Labs", context: "Practicing network and system defense fundamentals on TryHackMe and Hack The Box" }
         ]
       },
       {
         id: "tools",
         name: "Developer Tools",
         items: [
-          { name: "Git & GitHub", context: "Version control, branching, code reviews, and project collaboration" },
-          { name: "IDEs", context: "IntelliJ IDEA, VS Code, Eclipse for Java and Python development" },
-          { name: "AI-Assisted Workflow", context: "Reviewing and refining code with modern tooling (Claude Code, Omniroute)" }
+          { name: "Git & GitHub", context: "Version control, branching, pull requests, and collaborative code management" },
+          { name: "IDEs", context: "IntelliJ IDEA, VS Code, and Eclipse for daily Java and Python development" },
+          { name: "Development Workflow", context: "Using modern developer tooling and AI pair-programming to write and review code" }
         ]
       }
     ]
@@ -190,27 +189,27 @@ export const profileData = {
     timeline: "Expected Graduation: May 2028",
     location: "Fredericton, NB, Canada",
     relevantCoursework: [
-      { code: "CS 2413", name: "Information Security", description: "Cryptographic fundamentals, threat modeling, network security protocols, OWASP principles" },
-      { code: "CS 2043", name: "Software Engineering", description: "Design patterns, architectural separation, testing methodologies, team collaboration" },
-      { code: "CS 1083", name: "Data Structures & Algorithms", description: "Algorithm analysis, trees, graphs, sorting algorithms, memory complexity" },
-      { code: "CS 1073", name: "Computer Science I (Java)", description: "Object-oriented programming, inheritance, polymorphism, encapsulation" },
-      { code: "MATH 1003", name: "Calculus I", description: "Mathematical foundations and analytical reasoning" }
+      { code: "CS 2413", name: "Information Security", description: "Cryptography basics, threat modeling, network security, and secure coding" },
+      { code: "CS 2043", name: "Software Engineering", description: "Software design, architecture, teamwork, and testing" },
+      { code: "CS 1083", name: "Data Structures & Algorithms", description: "Trees, graphs, sorting algorithms, and time/space complexity" },
+      { code: "CS 1073", name: "Computer Science I (Java)", description: "Object-oriented programming, classes, inheritance, and polymorphism" },
+      { code: "MATH 1003", name: "Calculus I", description: "Analytical problem solving and mathematical foundations" }
     ],
     certifications: [
-      { name: "CompTIA Security+", status: "In Progress (Targeted 2027)", relevance: "Industry-standard baseline for threat detection, cryptography, and enterprise security posture" },
-      { name: "AWS Certified Cloud Practitioner", status: "Planned", relevance: "Cloud infrastructure fundamentals, shared responsibility model, and cloud security" }
+      { name: "CompTIA Security+", status: "Currently Studying (Targeted 2027)", relevance: "Broad baseline for threat analysis, networking basics, and security concepts" },
+      { name: "AWS Certified Cloud Practitioner", status: "Planned", relevance: "Cloud fundamentals, services, and cloud security architecture" }
     ]
   },
 
   interests: {
     technicalDirection: [
-      "Secure software architecture and building resilient enterprise backend services",
-      "Operating system internals, Linux kernel mechanics, and low-level system security",
-      "Applied machine learning for threat intelligence and privacy-preserving algorithms"
+      "Building reliable backend web services and clean APIs",
+      "Learning operating system concepts, Linux administration, and network security",
+      "Applying machine learning to practical cybersecurity problems like phishing detection"
     ],
     athleticsAndTeamwork: {
       sports: "Competitive Soccer & Basketball",
-      summary: "Playing competitive team sports trains rapid tactical decision-making under intense pressure, consistent physical and mental discipline, and the instinct to put team cohesion above personal vanity—qualities that directly translate to incident triage and cross-functional engineering teams."
+      summary: "Playing competitive soccer and basketball keeps me active, disciplined, and comfortable making fast decisions under pressure. It also reinforces the value of team chemistry and clear communication—habits that carry directly over into group coding projects and troubleshooting under deadlines."
     }
   }
 };
@@ -218,10 +217,9 @@ export const profileData = {
 export const NAV_TABS = [
   { id: 'about', label: 'About' },
   { id: 'projects', label: 'Projects' },
-  { id: 'skills', label: 'Technical Skills' },
+  { id: 'skills', label: 'Skills' },
   { id: 'education', label: 'Education' },
   { id: 'contact', label: 'Contact' }
 ];
 
 export default profileData;
-

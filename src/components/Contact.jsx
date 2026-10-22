@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, ArrowUpRight, MapPin, Globe, Sparkles } from 'lucide-react';
+import { Mail, ArrowUpRight, MapPin, Globe, Sparkles, Download, FileText } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './BrandIcons';
 import './Contact.css';
 
@@ -12,14 +12,14 @@ export const Contact = ({ identity }) => {
           <div className="contact-left-col">
             <span className="section-kicker">
               <Sparkles size={14} className="kicker-icon" />
-              <span>05 / Get In Touch</span>
+              <span>05 / Contact</span>
             </span>
-            <h2 className="contact-heading">Let's discuss engineering opportunities</h2>
+            <h2 className="contact-heading">Let's connect</h2>
             <p className="contact-text">
-              I am actively seeking <strong>Summer 2027 Co-op</strong> placements and software development opportunities across Canada (remote or on-site in New Brunswick, Montreal, Ottawa, and beyond).
+              I'm actively seeking <strong>Summer 2027 Co-op</strong> placements and software development roles across Canada (open to remote or on-site in New Brunswick, Montreal, Ottawa, and beyond).
             </p>
             <p className="contact-subtext">
-              Whether you are an engineering team lead, a technical recruiter, or a fellow developer interested in secure systems and applied AI, I welcome the conversation.
+              Whether you're a recruiter, engineer, or fellow student interested in cybersecurity and software engineering, feel free to reach out—I'd love to chat!
             </p>
 
             <div className="contact-location-meta">
@@ -31,6 +31,30 @@ export const Contact = ({ identity }) => {
                 <Globe size={13} />
                 <span>Bilingual: English & French</span>
               </span>
+            </div>
+
+            {/* Prominent Resume Download Button */}
+            <div className="contact-resume-cta">
+              <a 
+                href={`${import.meta.env.BASE_URL}Resume_Software_Development.docx`}
+                download="Resume - Software Development.docx"
+                className="btn btn-primary contact-resume-btn"
+                title="Download Resume (.docx)"
+              >
+                <Download size={16} />
+                <span>Download Resume (.docx)</span>
+              </a>
+              <a 
+                href={`${import.meta.env.BASE_URL}Resume_Software_Development.pdf`}
+                download="Resume - Software Development.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-secondary contact-resume-btn-secondary"
+                title="Download or View PDF Version"
+              >
+                <FileText size={15} />
+                <span>PDF Version</span>
+              </a>
             </div>
           </div>
 
@@ -47,7 +71,7 @@ export const Contact = ({ identity }) => {
                   <Mail size={19} />
                 </div>
                 <div className="direct-link-text">
-                  <span className="direct-link-label">Professional Email</span>
+                  <span className="direct-link-label">Email</span>
                   <span className="direct-link-value">{identity.email}</span>
                 </div>
                 <ArrowUpRight size={17} className="direct-link-arrow" />
@@ -87,6 +111,23 @@ export const Contact = ({ identity }) => {
                   <span className="direct-link-value">github.com/{identity.githubUser}</span>
                 </div>
                 <ArrowUpRight size={17} className="direct-link-arrow" />
+              </a>
+
+              {/* Resume Download Card */}
+              <a 
+                href={`${import.meta.env.BASE_URL}Resume_Software_Development.docx`}
+                download="Resume - Software Development.docx"
+                className="direct-link-card glass-floating link-resume"
+                title="Download Resume - Software Development (.docx)"
+              >
+                <div className="direct-link-icon-frame resume">
+                  <FileText size={19} />
+                </div>
+                <div className="direct-link-text">
+                  <span className="direct-link-label">Resume</span>
+                  <span className="direct-link-value">Resume - Software Development.docx</span>
+                </div>
+                <Download size={17} className="direct-link-arrow" />
               </a>
             </div>
           </div>

@@ -21,6 +21,21 @@
   position: relative;
 }
 
+.hero-action-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  margin-top: 1.75rem;
+}
+
+.hero-linkedin-btn {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 /* Atmospheric Prismatic Aura Behind Hero */
 .hero-prismatic-aura {
   position: absolute;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, Mail, MapPin, Globe, Shield, Code2 } from 'lucide-react';
+import { LinkedinIcon } from './BrandIcons';
 import { LiquidGlass } from './LiquidGlass';
 import './Hero.css';
 
@@ -30,7 +31,7 @@ export const Hero = ({ identity, onTabChange }) => {
           <div className="hero-kicker-row">
             <span className="hero-status-pill">
               <span className="live-status-dot" />
-              <span>BSc Computer Science • Cybersecurity Specialization</span>
+              <span>2nd-Year CS Student • Cybersecurity Focus</span>
             </span>
             <span className="hero-location-tag">
               <MapPin size={13} />
@@ -38,10 +39,10 @@ export const Hero = ({ identity, onTabChange }) => {
             </span>
           </div>
 
-          {/* Main Editorial Headline */}
+          {/* Main Headline */}
           <div className="hero-headline-wrapper">
             <h1 className="hero-headline">
-              Building secure software, exploring systems, and understanding problems beneath the surface.
+              Building secure software, backend systems, and learning how things work under the hood.
             </h1>
           </div>
 
@@ -50,7 +51,7 @@ export const Hero = ({ identity, onTabChange }) => {
             {identity.heroIntro}
           </p>
 
-          {/* Primary & Secondary Actions (Tab Navigation) */}
+          {/* Primary & Secondary Actions (Tab Navigation + Direct Social) */}
           <div className="hero-action-row">
             <button 
               type="button"
@@ -62,11 +63,23 @@ export const Hero = ({ identity, onTabChange }) => {
               <ArrowRight size={15} />
             </button>
 
+            <a 
+              href={identity.linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-secondary hero-linkedin-btn"
+              title="Open LinkedIn Profile"
+              aria-label="LinkedIn Profile"
+            >
+              <LinkedinIcon size={15} />
+              <span>LinkedIn</span>
+            </a>
+
             <button 
               type="button"
               onClick={handleContactClick}
               className="btn btn-secondary"
-              title="Contact"
+              title="Contact Me"
             >
               <Mail size={15} />
               <span>Contact</span>
@@ -105,7 +118,7 @@ export const Hero = ({ identity, onTabChange }) => {
         </div>
       </div>
 
-        {/* Open Editorial Datum Bar (Zero Card Panels) */}
+        {/* Datum Bar */}
         <div className="hero-telemetry-datum-bar">
           <div className="datum-cell">
             <div className="datum-icon-wrap datum-cyan">
@@ -125,7 +138,7 @@ export const Hero = ({ identity, onTabChange }) => {
             </div>
             <div className="datum-meta">
               <span className="datum-label">CORE FOCUS</span>
-              <span className="datum-value">Secure Software & System Hardening</span>
+              <span className="datum-value">Backend & Software Security</span>
             </div>
           </div>
 
@@ -137,7 +150,7 @@ export const Hero = ({ identity, onTabChange }) => {
             </div>
             <div className="datum-meta">
               <span className="datum-label">LANGUAGES</span>
-              <span className="datum-value">Bilingual (English & French)</span>
+              <span className="datum-value">English & French (Bilingual)</span>
             </div>
           </div>
         </div>

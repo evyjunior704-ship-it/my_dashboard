@@ -9,92 +9,92 @@ export const About = () => {
     {
       id: 'foundation',
       num: '01',
-      kicker: 'ACADEMIC & SYSTEMS THEORY',
-      name: 'Computer Science Foundation',
+      kicker: '01 STUDIES',
+      name: 'CS Studies at UNB',
       accentColor: 'var(--color-cyan-prismatic)',
       className: 'domain-cyan',
       icon: <BookOpen size={18} />,
       items: [
         {
           name: 'University of New Brunswick',
-          context: 'Undergraduate Computer Science student in Fredericton, NB, pursuing a specialized concentration in cybersecurity.'
+          context: 'Second-year Computer Science student in Fredericton, NB, specializing in cybersecurity.'
         },
         {
-          name: 'Theory to Real Systems',
-          context: 'Connecting data structures, discrete algorithms, and operating system concepts directly with hands-on software development.'
+          name: 'From Concepts to Code',
+          context: 'Applying concepts from data structures, algorithms, and computer systems directly to software projects.'
         },
         {
-          name: 'Bilingual Technical Fluency',
-          context: 'Fully fluent in English and French, capable of communicating technical rationale and design trade-offs across diverse teams.'
+          name: 'Bilingual',
+          context: 'Fluent in both English and French, comfortable collaborating with teams in either language.'
         }
       ]
     },
     {
       id: 'backend',
       num: '02',
-      kicker: 'BACKEND & CONCURRENCY',
-      name: 'Backend Architecture',
+      kicker: '02 BACKEND',
+      name: 'Backend Development',
       accentColor: 'var(--color-teal-soft)',
       className: 'domain-teal',
       icon: <Database size={18} />,
       items: [
         {
-          name: 'Java 21 & Spring Boot',
-          context: 'Developing transactional REST services, secure database controllers, and JPA persistence schemas with strict encapsulation.'
+          name: 'Java & Spring Boot',
+          context: 'Building REST APIs, connecting relational databases, and handling business logic with Spring Boot.'
         },
         {
-          name: 'ACID Concurrency Controls',
-          context: 'Enforcing database row locks and explicit transaction boundaries to prevent race conditions during high-volume checkouts.'
+          name: 'Database Transactions',
+          context: 'Using transactional boundaries and row locks to make sure data stays consistent, even during concurrent requests.'
         },
         {
-          name: 'Maintainable Systems Design',
-          context: 'Prioritizing clear data flow, readable code, and verifiable test coverage over superficial or ad-hoc pattern copying.'
+          name: 'Clean & Maintainable Code',
+          context: 'Focusing on readable architecture, clear data flow, and reliable error handling.'
         }
       ]
     },
     {
       id: 'security',
       num: '03',
-      kicker: 'APPLICATION HARDENING',
-      name: 'Secure-by-Design Thinking',
+      kicker: '03 SECURITY',
+      name: 'Security-Minded Thinking',
       accentColor: 'var(--color-coral)',
       className: 'domain-coral',
       icon: <Shield size={18} />,
       items: [
         {
-          name: 'Session-Scoped Authorization',
-          context: 'Deriving tenant and user scope exclusively from authenticated session tokens to eliminate IDOR and broken access controls.'
+          name: 'Session-Based Access',
+          context: 'Deriving user permissions directly from authenticated sessions to stop unauthorized access (IDOR).'
         },
         {
-          name: 'Cryptographic Protection',
-          context: 'Implementing BCrypt hashing with work factor 10 and uniform error responses to completely prevent user enumeration attacks.'
+          name: 'Password Protection',
+          context: 'Hashing passwords with BCrypt and using uniform error messages to protect user credentials.'
         },
         {
-          name: 'Root-Cause Investigation',
-          context: 'Diagnosing protocol failures, buffer limits, and race conditions down to OS and network layers rather than patching symptoms.'
+          name: 'Finding Root Causes',
+          context: 'Taking time to understand why bugs, race conditions, or network glitches happen at the system level.'
         }
       ]
     },
     {
       id: 'discipline',
       num: '04',
-      kicker: 'DISCIPLINE & EXPLORATION',
-      name: 'Athletics & Active Direction',
+      kicker: '04 BEYOND CODING',
+      name: 'Sports & Teamwork',
       accentColor: 'var(--color-amber)',
       className: 'domain-amber',
       icon: <Activity size={18} />,
       items: [
         {
-          name: 'Competitive Soccer & Basketball',
-          context: 'Playing competitive team sports, maintaining steady physical discipline, and fostering collaborative composure under pressure.'
+          name: 'Soccer & Basketball',
+          context: 'Playing competitive soccer and basketball keeps me active, disciplined, and comfortable under pressure.'
         },
         {
-          name: 'Concise Decision-Making',
-          context: 'Translating fast-paced sports instincts into rapid, ego-free technical communication during sprint triage and system debugging.'
+          name: 'Team Player',
+          context: 'Staying open, communicating clearly, and collaborating smoothly with project teammates.'
         },
         {
-          name: 'Continuous Investigation',
-          context: 'Actively researching computer vision obfuscation, Linux system internals, and applied machine learning security models.'
+          name: 'Always Learning',
+          context: 'Constantly exploring new tools, operating systems, and tech topics outside my university classes.'
         }
       ]
     }
@@ -113,11 +113,11 @@ export const About = () => {
         <div className="section-header-block">
           <span className="section-kicker">
             <Compass size={14} className="kicker-icon" />
-            <span>01 / Background & Engineering Focus</span>
+            <span>01 / About Me</span>
           </span>
-          <h2 className="section-heading">Engineering Background & Systems Focus</h2>
+          <h2 className="section-heading">Background & Focus Areas</h2>
           <p className="section-subtext">
-            Second-year Computer Science student at the University of New Brunswick specializing in cybersecurity. Focused on backend engineering with Java and Spring Boot, secure systems design, and applied machine learning.
+            Second-year Computer Science student at the University of New Brunswick specializing in cybersecurity. I focus on backend development with Java and Spring Boot, understanding software security, and building practical projects.
           </p>
         </div>
 
@@ -188,7 +188,7 @@ export const About = () => {
       <div className="about-footer-ledger">
         <div className="about-ledger-badge">
           <CheckCircle2 size={15} className="about-ledger-check" />
-          <span>Academic Foundation & Engineering Background • University of New Brunswick</span>
+          <span>Computer Science • University of New Brunswick</span>
         </div>
         <div className="about-ledger-meta-tags">
           <span className="tech-pill">Bilingual (English & French)</span>

@@ -48,7 +48,7 @@ export const Footer = ({ identity, activeTab = 'about', onTabChange }) => {
 
         <div className="footer-bottom-row">
           <span className="footer-copyright">
-            © {CURRENT_YEAR} {identity.fullName}. Grounded in verified engineering experience.
+            © {CURRENT_YEAR} {identity.fullName} • Computer Science @ UNB
           </span>
           <span className="footer-bilingual">
             {identity.bilingual}

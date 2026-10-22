@@ -17,11 +17,11 @@ export const Education = ({ education = {} }) => {
       <div className="education-simple-header">
         <span className="section-kicker">
           <GraduationCap size={14} className="kicker-icon" />
-          <span>04 / Education & Academics</span>
+          <span>04 / Education</span>
         </span>
-        <h2 className="section-heading">Academic Foundation</h2>
+        <h2 className="section-heading">Education & Studies</h2>
         <p className="section-subtext">
-          Computer Science student at {institution} specializing in Cybersecurity, with coursework across systems security, software engineering, and algorithmic foundations.
+          Undergraduate student at {institution} specializing in Cybersecurity, taking courses in software engineering, data structures, and computer security.
         </p>
       </div>
 
@@ -36,7 +36,7 @@ export const Education = ({ education = {} }) => {
                 <GraduationCap size={16} />
               </div>
               <div className="pane-title-group">
-                <span className="pane-kicker">DEGREE PROGRAM</span>
+                <span className="pane-kicker">DEGREE</span>
                 <h3 className="pane-title">{degree}</h3>
               </div>
             </div>
@@ -48,7 +48,7 @@ export const Education = ({ education = {} }) => {
             <ul className="education-bullets">
               <li>{specialization}</li>
               <li>{location} campus</li>
-              <li>Core concentration in backend architecture & systems security</li>
+              <li>Focus in software development & cybersecurity</li>
               <li>Bilingual study (English & French)</li>
             </ul>
           </div>
@@ -60,18 +60,18 @@ export const Education = ({ education = {} }) => {
                 <BookOpen size={16} />
               </div>
               <div className="pane-title-group">
-                <span className="pane-kicker">RELEVANT CURRICULUM</span>
+                <span className="pane-kicker">COURSEWORK</span>
                 <h3 className="pane-title">Core Courses</h3>
               </div>
             </div>
             <div className="pane-meta-strip">
-              <span>Security, Software & Systems Foundations</span>
+              <span>Key Computer Science Courses</span>
             </div>
             <ul className="education-bullets coursework-bullets">
               <li><strong>Security & Systems</strong> — CS 2413 (InfoSec), CS 2253 (Machine Org)</li>
               <li><strong>Software Engineering</strong> — CS 2043 (SE), CS 1083 (Data Structures)</li>
               <li><strong>Core Programming</strong> — CS 1073 (Computer Science I — Java)</li>
-              <li><strong>Mathematical Theory</strong> — CS 1303 (Discrete Structures), MATH 1003 (Calculus I)</li>
+              <li><strong>Math & Logic</strong> — CS 1303 (Discrete Structures), MATH 1003 (Calculus I)</li>
             </ul>
           </div>
 
@@ -82,15 +82,15 @@ export const Education = ({ education = {} }) => {
                 <Award size={16} />
               </div>
               <div className="pane-title-group">
-                <span className="pane-kicker">ACCREDITATIONS</span>
+                <span className="pane-kicker">CREDENTIALS</span>
                 <h3 className="pane-title">Certifications & Status</h3>
               </div>
             </div>
             <div className="pane-meta-strip">
-              <span>Professional Credentials & Eligibility</span>
+              <span>Certifications & Work Eligibility</span>
             </div>
             <ul className="education-bullets">
-              <li><strong>CompTIA Security+</strong> — In Progress (Expected 2027)</li>
+              <li><strong>CompTIA Security+</strong> — Currently Studying (Targeted 2027)</li>
               <li><strong>AWS Cloud Practitioner</strong> — Planned</li>
               <li><strong>Canadian Work Authorization</strong> — Summer 2027 Co-op Eligible</li>
               <li><strong>Fredericton Base</strong> — Open to relocation & remote roles</li>

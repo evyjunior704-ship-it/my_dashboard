@@ -9,7 +9,7 @@ export const Skills = ({ skills }) => {
     languages: {
       id: 'languages',
       num: '01',
-      kicker: 'CORE SYNTAX & RUNTIMES',
+      kicker: '01 LANGUAGES',
       accentColor: 'var(--color-cyan-prismatic)',
       className: 'domain-cyan',
       icon: <Code2 size={18} />
@@ -17,7 +17,7 @@ export const Skills = ({ skills }) => {
     backend: {
       id: 'backend',
       num: '02',
-      kicker: 'SYSTEMS & PERSISTENCE',
+      kicker: '02 BACKEND',
       accentColor: 'var(--color-teal-soft)',
       className: 'domain-teal',
       icon: <Database size={18} />
@@ -25,7 +25,7 @@ export const Skills = ({ skills }) => {
     security: {
       id: 'security',
       num: '03',
-      kicker: 'APPSEC & THREAT MITIGATION',
+      kicker: '03 SECURITY',
       accentColor: 'var(--color-coral)',
       className: 'domain-coral',
       icon: <Shield size={18} />
@@ -33,7 +33,7 @@ export const Skills = ({ skills }) => {
     tools: {
       id: 'tools',
       num: '04',
-      kicker: 'ENGINEERING WORKFLOWS',
+      kicker: '04 TOOLS',
       accentColor: 'var(--color-amber)',
       className: 'domain-amber',
       icon: <Wrench size={18} />
@@ -53,11 +53,11 @@ export const Skills = ({ skills }) => {
         <div className="section-header-block">
           <span className="section-kicker">
             <Sparkles size={14} className="kicker-icon" />
-            <span>03 / Technical Capabilities</span>
+            <span>03 / Skills</span>
           </span>
-          <h2 className="section-heading">Verified Technical Skills & Systems</h2>
+          <h2 className="section-heading">Technical Skills & Tools</h2>
           <p className="section-subtext">
-            Every competency below is grounded in actual academic coursework, production implementations, or lab security environments. No arbitrary percentage bars or vanity meters.
+            Languages, frameworks, and tools I use in my university courses, personal projects, and hands-on labs.
           </p>
         </div>
 
@@ -131,7 +131,7 @@ export const Skills = ({ skills }) => {
       <div className="skills-footer-ledger">
         <div className="ledger-badge">
           <CheckCircle2 size={15} className="ledger-check" />
-          <span>Evidence-Based: 100% Verifiable Academic & Project Context</span>
+          <span>Computer Science & Cybersecurity • University of New Brunswick</span>
         </div>
         <div className="ledger-meta-tags">
           <span className="tech-pill">Java 21</span>
@@ -139,7 +139,7 @@ export const Skills = ({ skills }) => {
           <span className="tech-pill">Python</span>
           <span className="tech-pill">PostgreSQL</span>
           <span className="tech-pill">OWASP Top 10</span>
-          <span className="tech-pill">Linux POSIX</span>
+          <span className="tech-pill">Linux</span>
         </div>
       </div>
     </section>
