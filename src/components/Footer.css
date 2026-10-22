@@ -1,0 +1,113 @@
+.portfolio-footer {
+  padding: 3.5rem 0;
+  border-top: 1px solid rgba(23, 23, 23, 0.07);
+  background: var(--color-ivory);
+  position: relative;
+  z-index: 1;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.footer-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(23, 23, 23, 0.06);
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.footer-brand-name {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+.footer-brand-sub {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
+.footer-tabs-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-tab-link {
+  background: transparent;
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.25rem 0.4rem;
+  border-radius: 4px;
+  transition: var(--transition-smooth);
+}
+
+.footer-tab-link:hover {
+  color: var(--color-ink);
+}
+
+.footer-tab-link.active {
+  color: var(--color-ink);
+  font-weight: 600;
+  border-bottom: 1.5px solid var(--color-cyan-prismatic);
+}
+
+.footer-top-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(23, 23, 23, 0.08);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02), inset 0 1px 0.5px rgba(255, 255, 255, 0.9);
+  color: var(--text-secondary);
+  padding: 0.45rem 0.95rem;
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.footer-top-btn:hover {
+  color: var(--color-ink);
+  background: #ffffff;
+  border-color: rgba(102, 217, 232, 0.45);
+  transform: translateY(-1.5px);
+  box-shadow: 0 6px 14px rgba(23, 23, 23, 0.06), 0 0 10px rgba(102, 217, 232, 0.2);
+}
+
+.footer-bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-bilingual {
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .footer-tabs-links {
+    width: 100%;
+    order: 3;
+    gap: 0.75rem;
+  }
+}

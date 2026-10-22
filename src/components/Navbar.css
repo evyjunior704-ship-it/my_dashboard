@@ -1,0 +1,288 @@
+.portfolio-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  transition: var(--transition-smooth);
+  padding: 1.15rem 0;
+  background: transparent;
+}
+
+.portfolio-header.scrolled {
+  padding: 0.8rem 0;
+  background: rgba(248, 245, 239, 0.45);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 8px 32px -4px rgba(23, 23, 23, 0.03), inset 0 -1px 0.5px rgba(255, 255, 255, 0.8);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+/* Brand Lockup Button */
+.brand-lockup-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  padding: 0.2rem;
+  border-radius: 12px;
+  transition: var(--transition-smooth);
+}
+
+.brand-monogram-tile {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--color-ink);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 14px rgba(23, 23, 23, 0.2), inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.brand-monogram-tile::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), transparent);
+}
+
+.brand-lockup-btn:hover .brand-monogram-tile {
+  background: #262626;
+  transform: translateY(-1.5px);
+  box-shadow: 0 6px 18px rgba(23, 23, 23, 0.25), 0 0 12px rgba(102, 217, 232, 0.35);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-ink);
+  letter-spacing: -0.01em;
+}
+
+.brand-sub {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* ==============================================================================
+   SEGMENTED LIQUID-GLASS TAB NAVIGATION TRACK (TRANSLUCENT SPECULAR)
+   ============================================================================== */
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-tabs-track {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.3rem 0.4rem;
+  background: rgba(255, 255, 255, 0.26);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 9999px;
+  box-shadow: 
+    0 8px 30px -4px rgba(23, 23, 23, 0.04),
+    0 2px 8px rgba(102, 217, 232, 0.08),
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 1px 0 rgba(23, 23, 23, 0.02);
+}
+
+.nav-tab-btn {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 0.45rem 1.05rem;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  position: relative;
+  white-space: nowrap;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-tab-btn:hover {
+  color: var(--color-ink);
+  background: rgba(255, 255, 255, 0.45);
+}
+
+/* Active Segmented Liquid-Glass Pill (Optical Lens) */
+.nav-tab-btn.active {
+  padding: 0;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.nav-active-liquid-glass {
+  padding: 0.45rem 1.05rem;
+  color: var(--color-ink);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.nav-active-liquid-glass .nav-tab-label {
+  position: relative;
+  z-index: 2;
+}
+
+/* Header Actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.header-icon-link {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.42);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02), inset 0 1px 0.5px rgba(255, 255, 255, 0.95);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.header-icon-link:hover {
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--color-ink);
+  border-color: rgba(102, 217, 232, 0.5);
+  transform: translateY(-1.5px);
+  box-shadow: 0 6px 14px rgba(23, 23, 23, 0.06), 0 0 10px rgba(102, 217, 232, 0.25);
+}
+
+.header-cta-btn {
+  padding: 0.55rem 1.15rem;
+  font-size: 0.85rem;
+}
+
+.mobile-toggle-btn {
+  display: none;
+  background: transparent;
+  border: 1px solid rgba(23, 23, 23, 0.1);
+  padding: 0.45rem;
+  border-radius: 8px;
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+/* Mobile Drawer */
+.mobile-nav-drawer {
+  position: absolute;
+  top: 100%;
+  left: 1rem;
+  right: 1rem;
+  margin-top: 0.5rem;
+  padding: 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 20px 48px rgba(23, 23, 23, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.mobile-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.mobile-tab-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  text-align: left;
+  transition: var(--transition-smooth);
+}
+
+.mobile-tab-btn:hover {
+  background: rgba(23, 23, 23, 0.04);
+  color: var(--color-ink);
+}
+
+.mobile-tab-btn.active {
+  background: #ffffff;
+  border-color: rgba(23, 23, 23, 0.08);
+  color: var(--color-ink);
+  box-shadow: 0 4px 12px rgba(23, 23, 23, 0.06), inset 0 1px 0.5px #ffffff;
+}
+
+.mobile-active-pill {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #0284c7;
+  background: rgba(102, 217, 232, 0.15);
+  border: 1px solid rgba(102, 217, 232, 0.35);
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+}
+
+@media (max-width: 980px) {
+  .desktop-nav {
+    display: none;
+  }
+  .header-cta-btn {
+    display: none;
+  }
+  .mobile-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

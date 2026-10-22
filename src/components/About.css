@@ -1,0 +1,329 @@
+/* ==============================================================================
+   ABOUT TAB — SCREEN-FILLING ARCHITECTURAL LEDGER
+   Template replicated from Skills Tab: Open Canvas • Zero Cards • 4 Pillars
+   ============================================================================== */
+
+.about-fullscreen-showcase {
+  width: 100%;
+  position: relative;
+  min-height: calc(100vh - 220px);
+}
+
+.about-stage-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 3.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(23, 23, 23, 0.07);
+  flex-wrap: wrap;
+}
+
+/* ==============================================================================
+   SEGMENTED LIQUID-GLASS DOMAIN FILTER TRACK
+   ============================================================================== */
+
+.about-filter-track {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.5rem;
+  background: rgba(255, 252, 248, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(23, 23, 23, 0.08);
+  border-radius: 9999px;
+  box-shadow: 
+    0 4px 18px -2px rgba(23, 23, 23, 0.04),
+    inset 0 1px 0.5px rgba(255, 255, 255, 0.95);
+  flex-wrap: wrap;
+}
+
+.about-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.5rem 1.05rem;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.about-pill-btn:hover {
+  color: var(--color-ink);
+  background: rgba(23, 23, 23, 0.04);
+}
+
+.about-pill-count {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: rgba(23, 23, 23, 0.06);
+  padding: 0.1rem 0.45rem;
+  border-radius: 9999px;
+}
+
+/* Active Domain Filter Pill */
+.about-pill-btn.active {
+  background: #ffffff;
+  color: var(--color-ink);
+  font-weight: 600;
+  border-color: rgba(23, 23, 23, 0.09);
+  box-shadow: 
+    0 6px 18px -2px rgba(23, 23, 23, 0.08),
+    0 0 14px -2px rgba(102, 217, 232, 0.25),
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 1);
+  transform: translateY(-1px);
+}
+
+.about-pill-btn.active .about-pill-count {
+  background: rgba(23, 23, 23, 0.09);
+  color: var(--color-ink);
+}
+
+/* ==============================================================================
+   SCREEN-FILLING ARCHITECTURAL LEDGER CANVAS (Zero Boxed Panels)
+   ============================================================================== */
+
+.about-ledger-canvas {
+  width: 100%;
+  animation: aboutFadeSlide 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity, transform;
+}
+
+@keyframes aboutFadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Quad-Grid: 4 Vertical Columns Stretching Across Screen */
+.about-ledger-canvas.quad-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+.about-domain-pillar {
+  padding: 0 2.25rem;
+  border-right: 1px solid rgba(23, 23, 23, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+.about-domain-pillar:first-child {
+  padding-left: 0;
+}
+
+.about-domain-pillar:last-child {
+  padding-right: 0;
+  border-right: none;
+}
+
+/* Single Focus View: When a single domain is filtered */
+.about-ledger-canvas.single-focus {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.about-ledger-canvas.single-focus .about-domain-pillar {
+  border-right: none;
+  padding: 0;
+}
+
+/* Pillar Header */
+.about-pillar-header {
+  padding-bottom: 1.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--domain-accent, rgba(23, 23, 23, 0.1));
+}
+
+.about-pillar-top-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.75rem;
+}
+
+.about-pillar-index {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--domain-dot, var(--color-ink));
+}
+
+.about-pillar-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.about-pillar-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.about-pillar-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--domain-bubble-bg);
+  border: 1px solid var(--domain-bubble-border);
+  color: var(--domain-dot);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8);
+}
+
+.about-pillar-title {
+  font-family: var(--font-serif);
+  font-size: 1.28rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  letter-spacing: -0.015em;
+}
+
+/* Pillar Items Deck (Non-card rows) */
+.about-pillar-items-deck {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-ledger-row {
+  padding: 1.25rem 0.85rem;
+  border-bottom: 1px solid rgba(23, 23, 23, 0.06);
+  border-radius: 10px;
+  transition: var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.about-ledger-row:hover {
+  background: rgba(255, 255, 255, 0.75);
+  transform: translateX(4px);
+  border-bottom-color: rgba(23, 23, 23, 0.12);
+  box-shadow: 0 4px 14px rgba(23, 23, 23, 0.03), inset 0 1px 0.5px #ffffff;
+}
+
+.about-name-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.about-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--domain-dot, var(--color-ink));
+  flex-shrink: 0;
+  transition: var(--transition-bounce);
+}
+
+.about-ledger-row:hover .about-dot {
+  transform: scale(1.5);
+  box-shadow: 0 0 8px var(--domain-dot);
+}
+
+.about-item-title {
+  font-family: var(--font-sans);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  letter-spacing: -0.01em;
+}
+
+.about-evidence-text {
+  font-size: 0.91rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+
+/* ==============================================================================
+   BOTTOM VERIFICATION LEDGER BAR
+   ============================================================================== */
+
+.about-footer-ledger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 3.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(23, 23, 23, 0.08);
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.about-ledger-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #065f46;
+}
+
+.about-ledger-check {
+  color: #059669;
+}
+
+.about-ledger-meta-tags {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1200px) {
+  .about-ledger-canvas.quad-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+  .about-domain-pillar {
+    border-right: none;
+    padding: 0;
+    border-bottom: 1px solid rgba(23, 23, 23, 0.08);
+    padding-bottom: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-stage-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
+  }
+  .about-filter-track {
+    width: 100%;
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+  .about-ledger-canvas.quad-grid {
+    grid-template-columns: 1fr;
+  }
+}

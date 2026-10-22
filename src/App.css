@@ -1,0 +1,73 @@
+/* ==============================================================================
+   PORTFOLIO APP ROOT & TABBED VIEW STYLING
+   ============================================================================== */
+
+.portfolio-app-root {
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--color-ivory);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+}
+
+main.portfolio-container {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+/* Screen-Filling Expansive Viewport for About, Projects & Skills */
+main.portfolio-container.wide-viewport {
+  max-width: 1440px;
+}
+
+/* Tab Content Panel with Smooth Entrance Animation */
+.tab-content-panel {
+  min-height: 72vh;
+  animation: tabEntrance 0.34s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity, transform;
+}
+
+@keyframes tabEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Standalone Tab Views (Projects, Skills, Education, Contact) */
+.tab-standalone {
+  padding-top: 7.25rem;
+  padding-bottom: 5.5rem;
+}
+
+.tab-standalone > section {
+  padding-top: 0 !important;
+  border-top: none !important;
+}
+
+/* About Tab View */
+.tab-about {
+  padding-bottom: 5rem;
+}
+
+/* Accessibility: Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .tab-content-panel {
+    animation: none;
+    transform: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .tab-standalone {
+    padding-top: 5.5rem;
+    padding-bottom: 3.5rem;
+  }
+}

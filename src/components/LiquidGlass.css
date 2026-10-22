@@ -1,0 +1,118 @@
+/* ==============================================================================
+   OPTICAL LIQUID GLASS SYSTEM (Apple-style Refraction & Sleek Edge Glint)
+   ============================================================================== */
+
+.liquid-glass-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+.liquid-glass-wrapper.tilt-enabled {
+  transform-style: preserve-3d;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease;
+}
+
+.liquid-glass-wrapper.flat-stable {
+  transform: none !important;
+  transition: box-shadow 0.28s ease;
+}
+
+/* Hidden SVG Defs */
+.lg-filter-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* Optical Refraction & Frosted Lens Backplane */
+.liquid-glass-lens {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.88);
+  box-shadow: 
+    0 8px 24px -4px rgba(23, 23, 23, 0.04),
+    inset 0 1px 0.5px 0 #ffffff,
+    inset 0 -1px 0.5px 0 rgba(23, 23, 23, 0.03);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 0;
+}
+
+/* Apple-style Sleek Diagonal Specular Edge Glint */
+.liquid-glass-specular {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.72;
+  mix-blend-mode: overlay;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.liquid-glass-wrapper.hovered .liquid-glass-specular {
+  opacity: 0.95;
+}
+
+/* Glass Inner Content Wrapper */
+.liquid-glass-content {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* ==============================================================================
+   TINT VARIANTS
+   ============================================================================== */
+
+/* Crystal / Ivory Tint (Default) */
+.liquid-glass-wrapper.tint-crystal .liquid-glass-lens {
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.liquid-glass-wrapper.tint-crystal:hover .liquid-glass-lens {
+  background: rgba(255, 255, 255, 0.74);
+  box-shadow: 
+    0 10px 28px -4px rgba(23, 23, 23, 0.06),
+    0 0 12px rgba(255, 255, 255, 0.7),
+    inset 0 1.2px 0.6px 0 #ffffff;
+}
+
+/* Cyan / Prismatic Tint (Active tab & Primary CTAs) */
+.liquid-glass-wrapper.tint-cyan .liquid-glass-lens {
+  background: rgba(255, 255, 255, 0.62);
+  border-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 
+    0 4px 16px -2px rgba(23, 23, 23, 0.05),
+    0 0 12px -2px rgba(102, 217, 232, 0.28),
+    inset 0 1.2px 0.6px 0 #ffffff,
+    inset 0 -1px 0.5px 0 rgba(23, 23, 23, 0.03);
+}
+
+.liquid-glass-wrapper.tint-cyan:hover .liquid-glass-lens {
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 
+    0 6px 20px -2px rgba(23, 23, 23, 0.07),
+    0 0 16px -2px rgba(102, 217, 232, 0.42),
+    inset 0 1.4px 0.7px 0 #ffffff;
+}
+
+/* Amber / Warm Tint (Education & Focus) */
+.liquid-glass-wrapper.tint-amber .liquid-glass-lens {
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow: 
+    0 4px 16px -2px rgba(23, 23, 23, 0.05),
+    0 0 12px -2px rgba(245, 158, 11, 0.25),
+    inset 0 1.2px 0.6px 0 #ffffff;
+}

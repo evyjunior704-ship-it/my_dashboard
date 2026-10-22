@@ -1,0 +1,125 @@
+.direction-section {
+  padding: 5rem 0;
+  border-top: 1px solid rgba(23, 23, 23, 0.07);
+}
+
+.direction-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 2.5rem;
+  align-items: stretch;
+}
+
+.direction-card, .athletics-card {
+  padding: 2.35rem;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-smooth);
+}
+
+.direction-card {
+  border-top: 1.5px solid var(--color-lavender);
+}
+
+.direction-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px -8px rgba(23, 23, 23, 0.07), 0 0 20px rgba(185, 165, 245, 0.15), inset 0 1.5px 1px 0 rgba(255, 255, 255, 1);
+}
+
+.athletics-card {
+  border-top: 1.5px solid var(--color-coral);
+}
+
+.athletics-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px -8px rgba(23, 23, 23, 0.07), 0 0 20px rgba(255, 148, 122, 0.15), inset 0 1.5px 1px 0 rgba(255, 255, 255, 1);
+}
+
+.card-kicker-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.15rem;
+}
+
+.card-kicker-icon {
+  color: var(--color-lavender);
+}
+
+.card-kicker-icon.trophy {
+  color: #ea580c;
+}
+
+.card-kicker-title {
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  letter-spacing: -0.015em;
+}
+
+.direction-intro {
+  font-size: 0.94rem;
+  color: var(--text-secondary);
+  line-height: 1.62;
+  margin-bottom: 1.35rem;
+}
+
+.direction-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.direction-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.93rem;
+  color: var(--color-ink);
+  line-height: 1.55;
+  padding: 0.55rem 0.75rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(23, 23, 23, 0.04);
+  transition: var(--transition-smooth);
+}
+
+.direction-item:hover {
+  background: rgba(255, 255, 255, 0.85);
+  transform: translateX(3px);
+  border-color: rgba(185, 165, 245, 0.4);
+}
+
+.direction-arrow {
+  color: #7c3aed;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.athletics-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #c2410c;
+  margin-bottom: 1rem;
+  display: block;
+  letter-spacing: 0.02em;
+}
+
+.athletics-text {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.72;
+}
+
+@media (max-width: 900px) {
+  .direction-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
