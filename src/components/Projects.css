@@ -41,7 +41,17 @@
   box-shadow: 
     0 4px 18px -2px rgba(23, 23, 23, 0.04),
     inset 0 1px 0.5px rgba(255, 255, 255, 0.95);
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  max-width: 100%;
+}
+
+.project-selector-track::-webkit-scrollbar {
+  display: none;
 }
 
 .project-selector-btn {
@@ -60,6 +70,7 @@
   transition: var(--transition-smooth);
   user-select: none;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .project-selector-btn:hover {
@@ -543,14 +554,46 @@
   .projects-stage-header {
     flex-direction: column;
     align-items: stretch;
-    gap: 1.5rem;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
   }
   .project-selector-track {
     width: 100%;
+    max-width: 100%;
     overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap !important;
     justify-content: flex-start;
+    padding: 0.35rem 0.45rem;
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+  }
+  .project-selector-btn {
+    padding: 0.45rem 0.95rem;
+    font-size: 0.82rem;
+    flex-shrink: 0;
+  }
+  .project-editorial-title {
+    font-size: clamp(1.75rem, 6vw, 2.3rem);
+  }
+  .project-editorial-subtitle {
+    font-size: 1rem;
+    line-height: 1.55;
   }
   .stage-telemetry-callouts {
     grid-template-columns: 1fr;
+  }
+  .project-bottom-action-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  .project-bottom-action-bar .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+  .project-paging-controls {
+    justify-content: center;
+    width: 100%;
   }
 }

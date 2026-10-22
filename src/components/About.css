@@ -37,7 +37,17 @@
   box-shadow: 
     0 4px 18px -2px rgba(23, 23, 23, 0.04),
     inset 0 1px 0.5px rgba(255, 255, 255, 0.95);
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  max-width: 100%;
+}
+
+.about-filter-track::-webkit-scrollbar {
+  display: none;
 }
 
 .about-pill-btn {
@@ -56,6 +66,7 @@
   transition: var(--transition-smooth);
   user-select: none;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .about-pill-btn:hover {
@@ -316,14 +327,27 @@
   .about-stage-header {
     flex-direction: column;
     align-items: stretch;
-    gap: 1.5rem;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
   }
   .about-filter-track {
     width: 100%;
+    max-width: 100%;
     overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap !important;
     justify-content: flex-start;
+    padding: 0.35rem 0.45rem;
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+  }
+  .about-pill-btn {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.82rem;
+    flex-shrink: 0;
   }
   .about-ledger-canvas.quad-grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
 }
